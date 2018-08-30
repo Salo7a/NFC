@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name" translatable="false">HMA NFC</string>
+    <string name="no_tag">No Tag Detected!</string>
+</resources>
