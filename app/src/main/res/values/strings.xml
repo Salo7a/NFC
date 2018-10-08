@@ -1,4 +1,13 @@
 <resources>
-    <string name="app_name" translatable="false">HMA NFC</string>
+    <string name="app_name" translatable="false">HNA PDA</string>
     <string name="no_tag">No Tag Detected!</string>
+    <string name="nurse_button">Nurse</string>
+    <string name="doctor_button">Doctor</string>
+    <string name="HNA_icon">Statiscope</string>
+    <string name="Who">I\'m a</string>
+    <string name="title_activity_doctor">Doctor</string>
+    <string name="title_activity_nurse">Nurse</string>
+    <string name="DocPassHint">Enter Your Doctor Password.</string>
+    <string name="SignIn">Sign In</string>
+    <string name="NurPassHint">Enter Your Nurse Password.</string>
 </resources>
