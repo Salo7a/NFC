@@ -1,6 +1,8 @@
 package com.hma.nfc;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
@@ -11,6 +13,33 @@ import static com.hma.nfc.MainActivity.NurClick;
 
 public class Nurse extends Activity {
 
+    public void backbuttonn(View view){
+
+        SharedPreferences sharedPreferences = this.getSharedPreferences("com.hma.nfc", Context.MODE_PRIVATE);
+        sharedPreferences.edit().putBoolean("logged_in", false).apply();
+        finish();
+    }
+
+    public void NurPassClick(View view){
+        EditText passEditBox = findViewById(R.id.passEditBox);
+        if (isEmpty(passEditBox)){
+            Toast.makeText(this, "Please Enter The Password", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            String DocPass = passEditBox.getText().toString();
+            SharedPreferences sharedPreferences = this.getSharedPreferences("com.hma.nfc", Context.MODE_PRIVATE);
+            sharedPreferences.edit().putString("pass", DocPass).apply();
+            sharedPreferences.edit().putBoolean("logged_in", true).apply();
+            Intent nfc = new Intent(getApplicationContext(),NFC.class);
+            nfc.putExtra("DocPass",DocPass);
+            startActivity(nfc);
+        }
+    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_nurse);
+    }
     public void NurCharClick(View view){
         NurClick++;
         if (NurClick == 1){
@@ -32,7 +61,7 @@ public class Nurse extends Activity {
             Toast.makeText(this, "Would you stop molesting me!", Toast.LENGTH_LONG).show();
         }
         else if (NurClick == 7){
-            Toast.makeText(this, "Did Beatrice put up to this?", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Did Beatrice put you up to this?", Toast.LENGTH_LONG).show();
         }
         else if (NurClick == 8){
             Toast.makeText(this, "I have a needle, and I'm not afraid to use it!", Toast.LENGTH_LONG).show();
@@ -45,17 +74,10 @@ public class Nurse extends Activity {
         }
 
     }
-    public void DocPassClick(View view){
-        EditText passEditBox = findViewById(R.id.passEditBox);
-        String DocPass = passEditBox.getText().toString();
-        Intent doc = new Intent(getApplicationContext(),NFC.class);
-        doc.putExtra("DocPass",DocPass);
-        startActivity(doc);
+    private boolean isEmpty(EditText etText) {
+        return etText.getText().toString().trim().length() == 0;
     }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doctor);
-    }
+
+
 
 }

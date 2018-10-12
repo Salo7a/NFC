@@ -15,6 +15,7 @@ import android.nfc.tech.NfcB;
 import android.nfc.tech.NfcF;
 import android.nfc.tech.NfcV;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +23,11 @@ import java.util.Objects;
 
 public class NFC extends Activity {
 
-    String nid;
+    public String nid;
+    public String IP;
+    public void backbuttonl(View view){
+        finish();
+    }
     private NfcAdapter mNfcAdapter;
     // list of NFC technologies detected:
     private final String[][] techList = new String[][] {
@@ -97,6 +102,10 @@ public class NFC extends Activity {
             out += hex[i];
         }
         return out;
+    }
+    public void set(View view){
+        Intent set = new Intent(getApplicationContext(),Settings.class);
+        startActivity(set);
     }
 
 }

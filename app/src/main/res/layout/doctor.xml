@@ -10,22 +10,25 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="227dp"
-        android:layout_height="381dp"
+        android:layout_width="336dp"
+        android:layout_height="411dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="43dp"
         android:layout_marginStart="68dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/doctor_button"
         android:onClick="DocCharClick"
-        android:src="@drawable/docchar"
+        android:src="@drawable/docchar70"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="285dp"
+        android:layout_width="350dp"
         android:layout_height="34dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/button_background"
@@ -33,7 +36,7 @@
         android:onClick="DocPassClick"
         android:text="@string/SignIn"
         android:textColor="@android:color/white"
-        android:textSize="14sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -41,8 +44,9 @@
 
     <EditText
         android:id="@+id/passEditBox"
-        android:layout_width="320dp"
+        android:layout_width="350dp"
         android:layout_height="38dp"
+        android:layout_marginBottom="24dp"
         android:layout_marginTop="36dp"
         android:background="@drawable/edit_text_border"
         android:ems="10"
@@ -51,9 +55,24 @@
         android:inputType="textPassword"
         android:paddingEnd="10dp"
         android:paddingStart="10dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="125px"
+        android:layout_height="125px"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:onClick="backbuttond"
+        android:scaleType="centerInside"
+        android:src="@drawable/backb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
