@@ -3,8 +3,10 @@ package com.hma.nfc;
 
 import android.app.Activity;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.nfc.NfcAdapter;
 import android.nfc.tech.IsoDep;
 import android.nfc.tech.MifareClassic;
@@ -16,7 +18,6 @@ import android.nfc.tech.NfcF;
 import android.nfc.tech.NfcV;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Objects;
@@ -84,7 +85,10 @@ public class NFC extends Activity {
         if (Objects.requireNonNull(intent.getAction()).equals(NfcAdapter.ACTION_TAG_DISCOVERED)) {
             Toast.makeText(this, "Tag Discovered", Toast.LENGTH_LONG).show();
             nid = ByteArrayToHexString(intent.getByteArrayExtra(NfcAdapter.EXTRA_ID));
-            ((TextView)findViewById(R.id.text)).setText(nid);
+            //((TextView)findViewById(R.id.text)).setText(nid);
+            SharedPreferences sharedPreferences = this.getSharedPreferences("com.hma.nfc", Context.MODE_PRIVATE);
+            sharedPreferences.edit().putString("nid", nid).apply();
+            Data();
         }
     }
 
@@ -106,6 +110,11 @@ public class NFC extends Activity {
     public void set(View view){
         Intent set = new Intent(getApplicationContext(),Settings.class);
         startActivity(set);
+    }
+
+    public void Data() {
+        Intent data = new Intent(getApplicationContext(), Data.class);
+        startActivity(data);
     }
 
 }

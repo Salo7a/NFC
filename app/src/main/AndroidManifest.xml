@@ -5,9 +5,10 @@
     <!-- Permission for using NFC hardware -->
     <uses-permission android:name="android.permission.NFC" />
     <!-- Forcing device to have NFC hardware -->
-    <uses-feature
-        android:name="android.hardware.nfc"
-        android:required="true" />
+    <!--<uses-feature-->
+    <!--android:name="android.hardware.nfc"-->
+    <!--android:required="true" />-->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -43,7 +44,7 @@
         <activity
             android:name=".Settings"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".data"></activity>
+        <activity android:name=".Data"></activity>
     </application>
 
 </manifest>
